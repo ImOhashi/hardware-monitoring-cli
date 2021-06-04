@@ -1,6 +1,10 @@
 import { paintText, inputValidation } from "../utils";
 
-export async function consoleTest(name, secondName, options) {
+export async function consoleTest(
+  name: string,
+  secondName: string,
+  options: any
+): Promise<void> {
   if (!name && !secondName) {
     const isName = await inputValidation("name", "Digite um nome: ");
 
@@ -19,6 +23,6 @@ export async function consoleTest(name, secondName, options) {
       `${options.color ? options.color : "white"}`
     );
 
-    console.log(`${paintedName} ${paintedSecondName}`);
+    console.log(`\n\n${paintedName} ${paintedSecondName}`);
   }
 }

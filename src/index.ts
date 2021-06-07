@@ -9,6 +9,6 @@ writeTitle(process.env.npm_package_name, "red");
 
 commander.version(process.env.npm_package_version);
 
-commander.command("sys-users").action(os.getSystemUsers);
+commander.command("sys-all-users").action(os.getAllSystemUsers);
 
 commander.parse(process.argv);

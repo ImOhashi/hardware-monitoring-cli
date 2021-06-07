@@ -16,4 +16,6 @@ commander
   .command("soma [number1] [number2]")
   .action(soma)
 
+
+
 commander.parse(process.argv);

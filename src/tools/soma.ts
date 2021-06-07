@@ -4,24 +4,23 @@ export async function soma(number1: number, number2: number): Promise<void> {
   if (!number1 && !number2) {
     const doTheNumber1Exists = await inputValidation(
       "number1",
-      "Mano entra com um número ae rapidim: "
+      "Digite um número: "
     );
 
     const doTheNumber2Exists = await inputValidation(
       "number2",
-      "Mano entra com o segundo número ae namoral: "
+      "Digite outro número: "
     );
 
-    const somaOsDoisNumeros = number1 + number2;
+    const somaOsDoisNumeros =
+      parseInt(doTheNumber1Exists.number1) +
+      parseInt(doTheNumber2Exists.number2);
 
-    let paintResult;
+    const result =
+      somaOsDoisNumeros > 20
+        ? paintText(somaOsDoisNumeros.toString(), "red")
+        : paintText(somaOsDoisNumeros.toString(), "green");
 
-    if (somaOsDoisNumeros > 20) {
-      paintResult = paintText(somaOsDoisNumeros.toString(), "red");
-    } else {
-      paintResult = paintText(somaOsDoisNumeros.toString(), "green");
-    }
-
-    console.log(`\n\n${paintText}`);
+    console.log(`\n\n${result}`);
   }
 }

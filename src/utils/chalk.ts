@@ -8,5 +8,9 @@ import chalk from "chalk";
  * @returns {string}
  */
 export function paintText(text: string, color: string): string {
-  return chalk[color](text);
+  try {
+    return chalk[color](text);
+  } catch (err) {
+    throw new Error(err);
+  }
 }

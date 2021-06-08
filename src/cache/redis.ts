@@ -7,11 +7,17 @@ export class Redis {
     this.redis = new IoRedis({
       host: process.env.REDIS_HOST || "localhost",
       port: parseInt(process.env.REDIS_PORT) || 6379,
-      keyPrefix: "system:",
+      keyPrefix: "sys:",
     });
   }
 
-  set(key: string, value: string, timeExp: string): Promise<string> {
-    return this.redis.set(key, value, timeExp);
+  public set(key: string, value: string, time: number): Promise<string> {
+    return this.redis.set(key, value, "EX", time);
+  }
+
+  public async get(key: string): Promise<any> {
+    const value = await this.redis.get(key);
+
+    return value ? value : null;
   }
 }

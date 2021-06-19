@@ -1,11 +1,17 @@
 import commander from "commander";
+import { config } from "dotenv";
 
+import database from "./database/connection";
 import { writeTitle } from "./utils";
 import { OperatingSystem, Battery, Cpu } from "./tools";
 
 const os = new OperatingSystem();
 const battery = new Battery();
 const cpu = new Cpu();
+
+config();
+
+database.connection();
 
 writeTitle(process.env.npm_package_name, "red");
 

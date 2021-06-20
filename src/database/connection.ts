@@ -1,4 +1,5 @@
 import { connect, NativeError } from "mongoose";
+
 import { DatabaseError } from "../error";
 
 class Database {

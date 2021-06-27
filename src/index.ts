@@ -12,7 +12,7 @@ const cpu = new Cpu();
 
 config();
 
-rabbit.connect();
+rabbit.connection();
 
 writeTitle(process.env.npm_package_name, "red");
 

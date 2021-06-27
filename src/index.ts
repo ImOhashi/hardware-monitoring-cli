@@ -1,11 +1,10 @@
 import commander from "commander";
 import { config } from "dotenv";
 
-import { RabbitmqServer } from "./broker";
+import rabbit from "./broker/rabbitmq";
 import { writeTitle } from "./utils";
 import { OperatingSystem, Battery, Cpu } from "./tools";
 
-const rabbit = new RabbitmqServer();
 const os = new OperatingSystem();
 const battery = new Battery();
 const cpu = new Cpu();

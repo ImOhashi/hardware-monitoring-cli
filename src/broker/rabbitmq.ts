@@ -4,7 +4,7 @@ import { Logger } from "../utils";
 import { AmqpError } from "../error";
 import { AmqpExchange } from "./amqpExchange";
 
-export class RabbitmqServer {
+class RabbitmqServer {
   private conn: Connection;
   private channel: Channel;
 
@@ -38,3 +38,5 @@ export class RabbitmqServer {
     );
   }
 }
+
+export default new RabbitmqServer();

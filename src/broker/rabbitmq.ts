@@ -1,5 +1,7 @@
 import amqp from "amqplib";
 
+import { AmqpError } from "../error";
+
 export class RabbitmqServer {
   private channel: amqp.Channel;
 
@@ -13,7 +15,7 @@ export class RabbitmqServer {
       this.channel = await conn.createChannel();
       console.log("Queue created!");
     } catch (err) {
-      throw new Error(err);
+      throw new AmqpError(err);
     }
   }
 

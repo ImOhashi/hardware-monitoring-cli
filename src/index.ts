@@ -1,17 +1,18 @@
 import commander from "commander";
 import { config } from "dotenv";
 
-import database from "./database/connection";
+import { RabbitmqServer } from "./broker";
 import { writeTitle } from "./utils";
 import { OperatingSystem, Battery, Cpu } from "./tools";
 
+const rabbit = new RabbitmqServer();
 const os = new OperatingSystem();
 const battery = new Battery();
 const cpu = new Cpu();
 
 config();
 
-database.connection();
+rabbit.connect();
 
 writeTitle(process.env.npm_package_name, "red");
 
